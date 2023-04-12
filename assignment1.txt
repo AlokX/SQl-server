@@ -1,0 +1,34 @@
+(a)	select * from Employee;
+(b)	select Ename, Eno from Employee;
+(c)	select ENAME, HIREDATE,SAL from Employee;
+(d)	select ENAME, SAL+300 as 'Increased Sal' from Employee;
+(e)	select ENAME, 12*SAL+100 as 'Annual Sal' from Employee;
+(f)	select ENAME, SAL from Employee where COMM is NULL;
+(g)	select distinct DEPT from Employee;
+(h)	select distinct JOB from Employee;
+(i)	select SAL from Employee where SAL<COMM ;
+(j)	select  SAL from Employee where SAL between 3000 and 4000;
+(k)	select ENAME, ENO, MGR from Employee where MGR IN(7902, 7566, 7788);
+(l)	select ENAME from Employee where ENAME like 'S%';
+(m)	select * from Employee where SAL>4100 ;
+(n)	select * from Employee order by HIREDATE;
+(o)	select * from Employee order by DEPT , SAL desc;
+(p)	select ENAME,JOB from Employee where HIREDATE between '1981-02-20' and '1981-05-01';
+(q)	select ENAME,DEPT from Employee where DEPT in (20,30) order by ENAME;
+(r)	select ENAME,SAL from Employee where DEPT in (10,40) and SAL>1200;
+(s)	select ENAME,HIREDATE from Employee where  YEAR(HIREDATE) ='1981'; 
+(t)	select * from Employee where MGR is NULL;
+(u)	select ENAME,SAL from Employee where COMM is not NULL;
+(v)	select ENAME from Employee where ENAME like '_a%';
+(w)	select ENAME,JOB from Employee where DEPT=20 and MGR=7788;
+(x)
+	(i) 
+		Ashok Singhal	43500.00
+			
+	(ii)
+		Martin S.
+		Kavita Sharma
+		Jaydeep Rana
+		Manoj Kaushik
+	(iii)
+		Kavita Sharma	NULL
