@@ -1,0 +1,56 @@
+1.
+
+CREATE TABLE Customer(
+Id int primary key,
+name varchar(20),
+addr varchar(10),
+phone int
+);
+
+CREATE TABLE Products(
+Id int primary key,
+Pname varchar(20) ,
+price numeric(7,2)
+);
+
+CREATE TABLE Orders (
+Id int primary key,
+curr_status VARCHAR(20),
+customerId int references Customer(Id),
+productId int references Products(Id)
+);
+
+
+
+=================================================================================================
+
+2.
+CREATE TABLE mydb.dbo.Parent(
+pin int primary key,
+fname varchar(16),
+lname varchar(16),
+phone int,
+address varchar(32)
+);
+CREATE TABLE mydb.dbo.Child(
+fname varchar(16),
+lname varchar(16),
+address varchar(32),
+pin int references Parent(pin)
+on update cascade on delete cascade
+)
+;
+
+insert into Parent values
+(1,'Sam','Tucker',86652,'MP'),
+(2,'Melissa','Ziovani',86659,'WB');
+
+select * from parent;
+
+
+insert into child values
+('Sam Jr.','Tucker','MP',1),
+('Luna','Tucker','MP',1),
+('Joe','Ziovani','WB',2);
+
+select * from Child;
