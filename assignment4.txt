@@ -1,0 +1,4 @@
+(i) Select * FROM GARMENT WHERE ReadyDate BETWEEN '09-12-08' AND '10-06-16';
+(ii) Select Fcode,MAX(Price)as Max_Price,MIN(Price) as Min_Price FROM GARMENT GROUP BY FCode;
+(iii) Select Gcode, Description, Type, FABRIC.Fcode from  GARMENT, FABRIC where GARMENT.fcode=FABRIC.fcode;
+(iv) SELECT GARMENT.*  FROM GARMENT, FABRIC WHERE GARMENT.Fcode=FABRIC.Fcode AND Type='Cotton';

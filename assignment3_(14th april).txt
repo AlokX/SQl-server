@@ -1,0 +1,25 @@
+1.
+(i) Select Book_Name,Author_Name, Price, Quantity_Issued from BOOKS,ISSUED Where BOOKS.Book_Id=ISSUED.Book_Id and Publishers='First Publ';
+
+(ii) Select Book_Name from BOOKS,ISSUED Where Type='Text' and BOOKS.Book_Id=ISSUED.Book_Id;
+
+(iii) Select Book_Name, Price from BOOKS order by Price; 
+
+(iv) Update BOOKS set Price= Price + 50 where Publishers='EPB';
+
+(v) Select Book_Name,Type, Quantity_Issued from BOOKS,ISSUED Where BOOKS.Book_Id=ISSUED.Book_Id and Publishers='EPB' and Quantity_Issued>4;
+
+(vi) Select BOOKs.Book_Id,Book_Name,Quantity_Issued from BOOKS,ISSUED Where BOOKS.Book_Id=ISSUED.Book_Id ;
+
+(vii) SELECT BOOKS.Book_Id,Book_Name,Author_Name from BOOKS,ISSUED where BOOKS.BOOK_ID=ISSUED.BOOK_ID AND Quantity_Issued = (SELECT MAX(Quantity_Issued) FROM ISSUED);
+
+(viii) SELECT * FROM BOOKS WHERE Book_Id NOT IN(SELECT Book_Id FROM ISSUED);
+
+(ix) SELECT COUNT(*) FROM BOOKS;	
+
+(x) SELECT MAX(Price) FROM BOOKS WHERE Qty >= 15;
+
+(xi) SELECT Book_Name, Author_Name FROM BOOKS WHERE Publishers ='EPB' ;
+
+2.
+	SELECT X.BOOK_ID AS 'X_ID' , X.BOOK_NAME AS 'X_BookName' , Y.BOOK_ID AS 'Y_ID' , Y.Price AS 'Y_Price'FROM BOOKS X, BOOKS Y WHERE X.BOOK_ID=Y.BOOK_ID;
