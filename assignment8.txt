@@ -1,0 +1,7 @@
+(1)select name from salesman where city='london' union select customer_name from customer where city='london';
+(2)select salesman_id, city from salesman union select salesman_id , city from customer;
+(3)select salesman_id, customer_id from customer union select salesman_id , customer_id from orders;
+(4)select salesman.salesman_id, name, order_no, 'highest on' as 'highest/lowest', order_date from salesman, orders where salesman.salesman_id orders.salesman_id and purchase_amount in (select max (purchase_amount) from orders group by order_date) 
+union
+select salesman.salesman_id, name, order_no, 'lowest on', order_date from salesman, orders where salesman.salesman_id =orders.salesman_id and purchase_amount in (select min (purchase_amount) from orders group by order_date) order by order_date;
+(5) select customer_id, city, grade, 'high' as rating from customer where grade >= 300 union select customer_id, city, grade, 'low' from customer where grade < 300;
