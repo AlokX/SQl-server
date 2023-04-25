@@ -32,6 +32,10 @@ select avg(price) as average_price from lms_book_details where category='java';
 select supplier_id,supplier_name,email from lms_suppliers_details where email like '%gmail.com';
 --(17)
 select supplier_id,supplier_name,coalesce(contact,email,address) as contactdetails from lms_suppliers_details;
+--(18)
+select a.member_id,member_name,b.book_code,book_title from lms_members a,lms_book_details b,lms_book_issue c where a.member_id=c.member_id and b.book_code=c.book_code
+--(19)
+select b.member_id,a.member_name,b.fine_range,c.fine_amount from lms_members a,lms_fine_details c, lms_book_issue b where a.member_id=b.member_id and c.fine_range=b.fine_range and c.fine_amount<100;
 --(20)
 select book_code,book_title,rack_num from lms_book_details bd where rack_num='A1' order by book_title;
 --(21)
