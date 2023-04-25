@@ -1,0 +1,57 @@
+--(1)
+exec sp_help lms_book_details;
+--(2)
+select * from lms_fine_details;
+--(3)
+select member_name from lms_members where city='chennai';
+--(4)
+select member_id,member_name,city,membership_status from lms_members where membership_status='Permanent';
+--(5)
+select m.member_id,member_name from lms_members m,lms_book_issue b where m.member_id=b.member_id and b.book_code='BL000002';
+--(6)
+select book_code,book_title,author from lms_book_details where author like 'P%';
+--(7)
+select count(*) as no_of_books from lms_book_details where category = 'Java';
+--(8)
+select category,count(category) as no_of_books from lms_book_details group by category
+--(9)
+select count(*) as no_of_books from lms_book_details where publication = 'Prentice Hall';
+--(10)
+select b.book_code,a.book_title from lms_book_details a ,lms_book_issue b where a.book_code=b.book_code and date_issue='2012-04-01';
+--(11)
+select member_id,member_name,date_register,date_expire from lms_members where date_expire<'2013-04-01';
+--(12)
+select member_id, member_name, date_register, membership_status from lms_members where membership_status='temporary' and date_register<'2012-03-01';
+--(13)
+select member_id,member_name from lms_members where city in ('chennai','delhi');
+--(14)
+select concat(book_title, ' is_written_by ',author) as 'title and author'from lms_book_details;
+--(15)
+select avg(price) as average_price from lms_book_details where category='java';
+--(16)
+select supplier_id,supplier_name,email from lms_suppliers_details where email like '%gmail.com';
+--(17)
+select supplier_id,supplier_name,coalesce(contact,email,address) as contactdetails from lms_suppliers_details;
+--(20)
+select book_code,book_title,rack_num from lms_book_details bd where rack_num='A1' order by book_title;
+--(21)
+select member_id,member_name,date_register from lms_members where member_id not in (select member_id from lms_book_issue);
+--(22)
+select a.member_id,b.member_name from lms_book_issue a join lms_members b on a.member_id=b.member_id where a.date_return>=a.date_returned and year(a.date_returned)=2012;
+--(23)
+select rack_num,count(book_code) as no_of_books from lms_book_details group by rack_num;
+--(24)
+select book_issue_no,member_name,date_register,date_expire,book_title,category,price,date_issue,date_return,date_returned,'issued' as book_issue_status,fine_amount
+from lms_book_issue a,lms_members m,lms_book_details b,lms_fine_details f where m.member_id=a.member_id and b.book_code=a.book_code and f.fine_range=a.fine_range;
+--(25)
+
+--(26)
+select  top 3 * from lms_suppliers_details;
+--(27)
+select * from lms_suppliers_details where supplier_id not in (select  top 3 supplier_id from lms_suppliers_details);
+--(28)
+exec sp_rename 'lms_members' , 'lms_members_details';
+--(29)
+truncate table lms_fine_details;
+--(30)
+select book_code,book_title,category,author,publication,publish_date,book_edition,price,rack_num,date_arrival,supplier_id from lms_book_details;
